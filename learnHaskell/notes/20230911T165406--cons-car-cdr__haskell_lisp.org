@@ -1,0 +1,38 @@
+#+title:      cons car cdr
+#+date:       [2023-09-11 Mon 16:54]
+#+filetags:   :haskell:lisp:
+#+identifier: 20230911T165406
+
+* cons car cdr
+
+The key to understanding lists is to understand that they're largely an illusion
+built on top of objects that are instances of a more primitive data type. Those
+simpler objects are pairs of values called cons cells, after the function ~CONS~
+used to create them.
+
+~CONS~ takes two arguments and returns a new cons cell containing the two values.
+These values can be references to any kind of object. Unless the second value is
+~NIL~ or another cons cell, a cons is printed as the two values in parentheses
+separated by a dot, a so-called *dotted pair*.
+
+~(cons 1 2) ==> (1 . 2)~
+
+The two values in a cons cell are called the ~CAR~ and the ~CDR~ after the names of
+the functions used to access them. At the dawn of time, these names were
+mnemonic, at least to the folks implementing the first Lisp on an IBM 704. But
+even then they were just lifted from the assembly mnemonics used to implement
+the operations. However, it's not all bad that these names are somewhat
+meaningless--when considering individual cons cells, it's best to think of them
+simply as an arbitrary pair of values without any particular semantics. Thus:
+
+~(car (cons 1 2)) ==> 1~
+~(cdr (cons 1 2)) ==> 2~
+
+Both ~CAR~ and ~CDR~ are also SETFable places--given an existing cons cell, it's possible to assign a new value to either of its values.3
+
+Because the values in a cons cell can be references to any kind of object, you
+can build larger structures out of cons cells by linking them together. Lists
+are built by linking together cons cells in a chain. The elements of the list
+are held in the ~CARs~ of the cons cells while the links to subsequent cons cells
+are held in the ~CDRs~. The last cell in the chain has a ~CDR~ of ~NIL~, which
+represents the empty list as well as the boolean value false.

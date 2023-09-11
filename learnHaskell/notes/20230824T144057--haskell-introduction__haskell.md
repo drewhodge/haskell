@@ -1,4 +1,11 @@
 ---
+title:      "Haskell Introduction"
+date:       2023-08-24T14:40:57-04:00
+tags:       ["haskell"]
+identifier: "20230824T144057"
+---
+
+---
 short-name:    haskell-intro
 date:          24.Aug.2023
 tags:          haskell, programming

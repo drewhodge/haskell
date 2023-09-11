@@ -1,4 +1,11 @@
 ---
+title:      "Reading Haskell"
+date:       2023-08-24T11:38:47-04:00
+tags:       ["haskell"]
+identifier: "20230824T113847"
+---
+
+---
 
 # Reading Simple
 
